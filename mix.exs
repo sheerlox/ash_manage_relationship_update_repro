@@ -20,8 +20,8 @@ defmodule AshRepro.MixProject do
 
   defp deps do
     [
-      {:ash, "== 2.21.2"},
-      {:ash_postgres, "== 1.5.22"}
+      {:ash, "== 2.21.6"},
+      {:ash_postgres, "== 1.5.23"}
     ]
   end
 end
