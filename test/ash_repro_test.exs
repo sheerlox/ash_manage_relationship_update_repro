@@ -46,4 +46,17 @@ defmodule AshReproTest do
     assert updated_profile.user.firstname == "UPDATED"
     assert updated_profile.user.lastname == "UPDATED"
   end
+
+  test "updates user through managed relationship - #3", %{profile: profile} do
+    profile
+    |> Ash.Changeset.for_update(:update,
+      user: %{firstname: "UPDATED", lastname: "UPDATED"}
+    )
+    |> Profiles.update!()
+
+    updated_profile = Profiles.get!(Profile, profile.id, load: [:user])
+
+    assert updated_profile.user.firstname == "UPDATED"
+    assert updated_profile.user.lastname == "UPDATED"
+  end
 end
