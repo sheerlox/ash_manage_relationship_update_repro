@@ -50,7 +50,7 @@ defmodule AshReproTest do
   test "updates user through managed relationship - #3", %{profile: profile} do
     profile
     |> Ash.Changeset.for_update(:update,
-      user: %{firstname: "UPDATED", lastname: "UPDATED"}
+      user: %{id: profile.user.id, firstname: "UPDATED", lastname: "UPDATED"}
     )
     |> Profiles.update!()
 
